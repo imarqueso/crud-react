@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./ModalComp.css";
+import "./ModalComponent.css";
 
 const ModalComponent = ({
   data,
@@ -85,4 +85,4 @@ const ModalComponent = ({
   );
 };
 
-export default ModalComp;
+export default ModalComponent;
