@@ -115,7 +115,7 @@ input {
     margin-right: 10px;
 }
 
-.buttons button:last-child {
+.buttons .cancelar {
     margin-right: 0px;
     background-color: brown;
 }

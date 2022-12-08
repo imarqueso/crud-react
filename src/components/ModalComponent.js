@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./ModalComponent.css";
 
 const ModalComponent = ({
@@ -76,7 +75,9 @@ const ModalComponent = ({
             </label>
             <div className="buttons">
               <button onClick={handleSave}>Salvar</button>
-              <button onClick={onClose}>Cancelar</button>
+              <div className="cancelar" onClick={onClose}>
+                Cancelar
+              </div>
             </div>
           </form>
         </div>
