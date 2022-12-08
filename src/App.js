@@ -5,6 +5,8 @@ import ModalComp from "./components/ModalComp";
 function App() {
   const [data, setData] = useState([]);
   const [dataEdit, setDataEdit] = useState({});
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const db_costumer = localStorage.getItem("cad_cliente")
@@ -24,13 +26,14 @@ function App() {
 
   const onOpen = (e) => {
     document.getElementById("modal-container").classList.add("modal-visivel");
-    e.preventDefault();
   };
 
   const onClose = (e) => {
     document
       .getElementById("modal-container")
       .classList.remove("modal-visivel");
+    setName("");
+    setEmail("");
     e.preventDefault();
   };
 
@@ -63,16 +66,18 @@ function App() {
                   <td>
                     <span
                       onClick={() => [
-                        setDataEdit({ name, email, index }),
                         onOpen(),
+                        setDataEdit({ name, email, index }),
+                        setName(name),
+                        setEmail(email),
                       ]}
                     >
-                      <i class="fa-solid fa-pen-to-square"></i>
+                      <i className="fa-solid fa-pen-to-square"></i>
                     </span>
                   </td>
                   <td>
                     <span onClick={(e) => handleRemove(email)}>
-                      <i class="fa-solid fa-trash"></i>
+                      <i className="fa-solid fa-trash"></i>
                     </span>
                   </td>
                 </tr>
@@ -87,6 +92,10 @@ function App() {
         setData={setData}
         dataEdit={dataEdit}
         setDataEdit={setDataEdit}
+        setName={setName}
+        name={name}
+        setEmail={setEmail}
+        email={email}
       />
     </section>
   );

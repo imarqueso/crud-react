@@ -1,10 +1,16 @@
 import { useState } from "react";
 import "./ModalComp.css";
 
-const ModalComp = ({ data, setData, dataEdit, onClose }) => {
-  const [name, setName] = useState(dataEdit.name || "");
-  const [email, setEmail] = useState(dataEdit.email || "");
-
+const ModalComp = ({
+  data,
+  setData,
+  dataEdit,
+  onClose,
+  setName,
+  name,
+  setEmail,
+  email,
+}) => {
   const handleSave = (e) => {
     e.preventDefault();
     if (!name || !email) {
