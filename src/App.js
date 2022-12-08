@@ -41,6 +41,10 @@ function App() {
           Novo Cadastro
         </button>
 
+        <span className="aviso">
+          Os dados ficam salvos no Local Storage do navegador*
+        </span>
+
         <div className="box">
           <table>
             <thead>
