@@ -1,0 +1,17 @@
+body {
+  font-family: 'Lato', sans-serif;
+font-family: 'Poppins', sans-serif;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: rgba(219, 214, 214, 0)
+}
+
+html::-webkit-scrollbar {
+  width: 6px;
+  background: rgba(146, 146, 146, 0.26);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: cornflowerblue;
+}
