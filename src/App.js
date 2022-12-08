@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import ModalComp from "./components/ModalComp";
+import ModalComponent from "./components/ModalComponent";
 
 function App() {
   const [data, setData] = useState([]);
@@ -40,7 +40,7 @@ function App() {
     <section className="container">
       <div className="content">
         <button onClick={() => [setDataEdit({}), onOpen()]}>
-          Novo Cadastro
+          Adicionar Usuário
         </button>
 
         <span className="aviso">
@@ -85,7 +85,7 @@ function App() {
           </table>
         </div>
       </div>
-      <ModalComp
+      <ModalComponent
         onClose={onClose}
         data={data}
         setData={setData}

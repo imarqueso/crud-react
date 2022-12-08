@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ModalComp.css";
 
-const ModalComp = ({
+const ModalComponent = ({
   data,
   setData,
   dataEdit,
@@ -49,7 +49,7 @@ const ModalComp = ({
     <>
       <div className="modal-container" id="modal-container" onClose={onClose}>
         <div className="modal-content">
-          <h2>Cadastro de Clientes</h2>
+          <h2>Cadastrar Usuário</h2>
           <span onClick={onClose} className="close">
             <i className="fa-solid fa-xmark"></i>
           </span>
