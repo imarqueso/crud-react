@@ -30,7 +30,8 @@ button, .cancelar {
   background-color: cornflowerblue;
   border-radius: 5px;
   text-transform: uppercase;
-  padding: 8px 15px;
+  padding: 0px 15px;
+  box-sizing: border-box;
   cursor: pointer;
 }
 
