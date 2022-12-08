@@ -34,7 +34,6 @@ function App() {
       .classList.remove("modal-visivel");
     setName("");
     setEmail("");
-    e.preventDefault();
   };
 
   return (
