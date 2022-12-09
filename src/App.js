@@ -63,8 +63,8 @@ function App() {
                 <th>Descrição</th>
                 <th>Deadline</th>
                 <th>Status</th>
-                <th></th>
-                <th></th>
+                <th>Editar</th>
+                <th>Excluir</th>
               </tr>
             </thead>
             <tbody>
