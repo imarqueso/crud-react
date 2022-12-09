@@ -86,7 +86,7 @@ label span {
     margin-bottom: 10px;
 }
 
-input {
+input, select {
     width: 100%;
     height: 40px;
     border: none;

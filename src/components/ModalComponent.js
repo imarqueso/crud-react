@@ -5,71 +5,106 @@ const ModalComponent = ({
   setData,
   dataEdit,
   onClose,
-  setName,
-  name,
-  setEmail,
-  email,
+  setTitulo,
+  titulo,
+  setDescricao,
+  descricao,
+  setId,
+  id,
+  setStatus,
+  status,
+  setDeadline,
+  deadline,
 }) => {
   const handleSave = (e) => {
     e.preventDefault();
-    if (!name || !email) {
+    if (!id || !titulo || !descricao || !deadline || !status) {
       return;
     }
 
-    if (emailAlreadyExists()) {
-      return alert("E-mail já cadastrado!");
-    }
+    // if (emailAlreadyExists()) {
+    //   return alert("E-mail já cadastrado!");
+    // }
 
     if (Object.keys(dataEdit).length) {
-      data[dataEdit.index] = { name, email };
+      data[dataEdit.index] = { id, titulo, descricao, deadline, status };
     }
 
     const newDataArray = !Object.keys(dataEdit).length
-      ? [...(data ? data : []), { name, email }]
+      ? [...(data ? data : []), { id, titulo, descricao, deadline, status }]
       : [...(data ? data : [])];
 
     localStorage.setItem("cad_cliente", JSON.stringify(newDataArray));
 
     setData(newDataArray);
-    setName("");
-    setEmail("");
+    setTitulo("");
+    setDescricao("");
+    setStatus("Selecione o status");
+    setDeadline("");
+    setId("");
     onClose();
   };
 
-  const emailAlreadyExists = () => {
-    if (dataEdit.email !== email && data?.length) {
-      return data.find((item) => item.email === email);
-    }
+  // const emailAlreadyExists = () => {
+  //   if (dataEdit.email !== email && data?.length) {
+  //     return data.find((item) => item.email === email);
+  //   }
 
-    return false;
-  };
+  //   return false;
+  // };
 
   return (
     <>
       <div className="modal-container" id="modal-container" onClose={onClose}>
         <div className="modal-content">
-          <h2>Cadastrar Usuário</h2>
+          <h2>Cadastrar Tarefa</h2>
           <span onClick={onClose} className="close">
             <i className="fa-solid fa-xmark"></i>
           </span>
           <form>
+            <input
+              type="text"
+              hidden
+              value={id}
+              name="id"
+              onChange={(e) => setId(e.target.value)}
+            />
             <label>
-              <span>Nome:</span>
+              <span>Título:</span>
               <input
                 type="text"
-                value={name}
-                name="name"
-                onChange={(e) => setName(e.target.value)}
+                value={titulo}
+                name="titulo"
+                onChange={(e) => setTitulo(e.target.value)}
                 required
               />
             </label>
             <label>
-              <span>E-mail:</span>
+              <span>Descrição:</span>
               <input
-                type="email"
-                value={email}
-                name="email"
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                value={descricao}
+                name="descricao"
+                onChange={(e) => setDescricao(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              <span>Status:</span>
+              <select name="status" onChange={(e) => setStatus(e.target.value)}>
+                <option value={status}>{status}</option>
+                <option value="Pendente">Pendente</option>
+                <option value="Pausado">Pausado</option>
+                <option value="Finalizado">Finalizado</option>
+              </select>
+            </label>
+            <label>
+              <span>Deadline:</span>
+              <input
+                type="date"
+                value={deadline}
+                name="deadline"
+                onChange={(e) => setDeadline(e.target.value)}
                 required
               />
             </label>
