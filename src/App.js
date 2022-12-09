@@ -78,6 +78,13 @@ function App() {
                     <td>{titulo}</td>
                     <td>{descricao}</td>
                     <td>{format(parseISO(deadline), "dd/MM/yyyy")}</td>
+                    {status === "" ? (
+                      <td>
+                        <span className="pendente">{status}</span>
+                      </td>
+                    ) : (
+                      ""
+                    )}
                     {status === "Pendente" ? (
                       <td>
                         <span className="pendente">{status}</span>
