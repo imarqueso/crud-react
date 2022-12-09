@@ -94,7 +94,7 @@ const ModalComponent = ({
                 onChange={(e) => setStatus(e.target.value)}
                 value={status}
               >
-                <option>Selecione o status</option>
+                <option value="Pendente">Selecione o status</option>
                 <option value="Pendente">Pendente</option>
                 <option value="Pausado">Pausado</option>
                 <option value="Finalizado">Finalizado</option>
