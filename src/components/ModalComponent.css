@@ -16,6 +16,20 @@
     left: 0px;
 }
 
+.modal-container::-webkit-scrollbar-track {
+    background-color: rgba(219, 214, 214, 0)
+}
+
+.modal-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: rgba(146, 146, 146, 0.26);
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+    background: cornflowerblue;
+}
+
 .modal-content {
     width: auto;
     min-width: 450px;
@@ -100,6 +114,7 @@ input, select {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 10px;
 }
 
 .buttons button {

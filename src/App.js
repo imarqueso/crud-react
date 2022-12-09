@@ -36,7 +36,7 @@ function App() {
   const onClose = (e) => {
     setTitulo("");
     setDescricao("");
-    setStatus("Selecione o status");
+    setStatus("");
     setDeadline("");
     document
       .getElementById("modal-container")
@@ -46,7 +46,7 @@ function App() {
   return (
     <section className="container">
       <div className="content">
-        <button onClick={() => [setDataEdit({}), onOpen()]}>
+        <button className="add-btn" onClick={() => [setDataEdit({}), onOpen()]}>
           Adicionar Tarefa
         </button>
 
