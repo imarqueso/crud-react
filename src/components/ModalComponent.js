@@ -58,9 +58,6 @@ const ModalComponent = ({
       <div className="modal-container" id="modal-container" onClose={onClose}>
         <div className="modal-content">
           <h2>Cadastrar Tarefa</h2>
-          <span onClick={onClose} className="close">
-            <i className="fa-solid fa-xmark"></i>
-          </span>
           <form>
             <input
               type="text"
