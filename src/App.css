@@ -103,6 +103,57 @@ td .id {
   display: none;
 }
 
+.pendente, .pausado, .finalizado {
+  width: auto;
+  height: auto;
+  padding: 5px 8px;
+  font-size: 14px;
+  border-radius: 3px;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.pendente {
+  background-color: brown;
+}
+
+.pausado {
+  background-color: steelblue;
+}
+
+.finalizado {
+  background-color: darkgreen;
+}
+
+.editar, .excluir {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: white;
+  opacity: 1;
+  transition: 0.4s ease all;
+}
+
+.editar {
+  background-color: royalblue;
+}
+
+.excluir {
+  background-color: crimson;
+}
+
+.editar:hover, .excluir:hover {
+  opacity: 0.7;
+  transition: 0.4s ease all;
+}
+
 @media (max-width: 1200px) {
   .content {
     width: 100%;

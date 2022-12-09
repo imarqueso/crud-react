@@ -78,9 +78,31 @@ function App() {
                     <td>{titulo}</td>
                     <td>{descricao}</td>
                     <td>{format(parseISO(deadline), "dd/MM/yyyy")}</td>
-                    <td>{status}</td>
+                    {status === "Pendente" ? (
+                      <td>
+                        <span className="pendente">{status}</span>
+                      </td>
+                    ) : (
+                      ""
+                    )}
+                    {status === "Pausado" ? (
+                      <td>
+                        <span className="pausado">{status}</span>
+                      </td>
+                    ) : (
+                      ""
+                    )}
+                    {status === "Finalizado" ? (
+                      <td>
+                        <span className="finalizado">{status}</span>
+                      </td>
+                    ) : (
+                      ""
+                    )}
+
                     <td>
                       <span
+                        className="editar"
                         onClick={() => [
                           onOpen(),
                           setDataEdit({
@@ -101,7 +123,10 @@ function App() {
                       </span>
                     </td>
                     <td>
-                      <span onClick={(e) => handleRemove(id)}>
+                      <span
+                        className="excluir"
+                        onClick={(e) => handleRemove(id)}
+                      >
                         <i className="fa-solid fa-trash"></i>
                       </span>
                     </td>
