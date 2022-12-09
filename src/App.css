@@ -46,6 +46,7 @@ button, .cancelar {
 }
 
 .box::-webkit-scrollbar {
+  width: 6px;
   height: 6px;
   background: rgba(146, 146, 146, 0.26);
 }
@@ -60,11 +61,12 @@ table {
   background-color: aliceblue;
   border-radius: 5px;
   border-collapse: collapse;
-  min-width: 1000px;
+  min-width: 100%;
+  box-sizing: border-box;
 }
 
 th {
-  font-size: 18px;
+  font-size: 16px;
   color: cornflowerblue;
   font-weight: 600;
   padding: 10px 20px;
