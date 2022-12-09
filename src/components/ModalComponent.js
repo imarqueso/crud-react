@@ -39,7 +39,7 @@ const ModalComponent = ({
     setData(newDataArray);
     setTitulo("");
     setDescricao("");
-    setStatus("Selecione o status");
+    setStatus("");
     setDeadline("");
     setId("");
     onClose();
@@ -88,8 +88,13 @@ const ModalComponent = ({
             </label>
             <label>
               <span>Status:</span>
-              <select name="status" onChange={(e) => setStatus(e.target.value)}>
-                <option value={status}>{status}</option>
+              <select
+                required
+                name="status"
+                onChange={(e) => setStatus(e.target.value)}
+                value={status}
+              >
+                <option>Selecione o status</option>
                 <option value="Pendente">Pendente</option>
                 <option value="Pausado">Pausado</option>
                 <option value="Finalizado">Finalizado</option>

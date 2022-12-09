@@ -36,7 +36,7 @@ function App() {
   const onClose = (e) => {
     setTitulo("");
     setDescricao("");
-    setStatus("Selecione o status");
+    setStatus("");
     setDeadline("");
     document
       .getElementById("modal-container")
