@@ -25,7 +25,7 @@ button, .cancelar {
   outline: none;
   border: none;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   color: white;
   background-color: cornflowerblue;
   border-radius: 5px;
@@ -33,6 +33,17 @@ button, .cancelar {
   padding: 0px 15px;
   box-sizing: border-box;
   cursor: pointer;
+  opacity: 1;
+  transition: 0.4s ease all;
+}
+
+button:hover, .cancelar:hover {
+  opacity: 0.7;
+  transition: 0.4s ease all;
+}
+
+.add-btn {
+  font-weight: 600;
 }
 
 .box {
@@ -109,10 +120,10 @@ td .id {
   width: auto;
   height: auto;
   padding: 5px 8px;
-  font-size: 14px;
+  font-size: 12px;
   border-radius: 3px;
   color: white;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
   cursor: default;
 }
@@ -137,7 +148,7 @@ td .id {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   opacity: 1;
   transition: 0.4s ease all;
@@ -148,7 +159,7 @@ td .id {
 }
 
 .excluir {
-  background-color: crimson;
+  background-color: #817e7e;
 }
 
 .editar:hover, .excluir:hover {
