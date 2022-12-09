@@ -51,15 +51,6 @@
     left: 0px;
 }
 
-.close {
-    font-size: 30px;
-    color: cornflowerblue;
-    position: absolute;
-    right: -30px;
-    top: -30px;
-    cursor: pointer;
-}
-
 form {
     width: 100%;
     height: auto;
