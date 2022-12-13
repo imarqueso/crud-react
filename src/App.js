@@ -72,6 +72,7 @@ function App() {
                   status={status}
                   setDeadline={setDeadline}
                   deadline={deadline}
+                  onOpen={onOpen}
                 />
               }
             />
@@ -94,6 +95,7 @@ function App() {
                   status={status}
                   setDeadline={setDeadline}
                   deadline={deadline}
+                  onOpen={onOpen}
                 />
               }
             />
@@ -116,6 +118,7 @@ function App() {
                   status={status}
                   setDeadline={setDeadline}
                   deadline={deadline}
+                  onOpen={onOpen}
                 />
               }
             />
