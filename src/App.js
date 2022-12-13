@@ -1,7 +1,11 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import ModalComponent from "./components/ModalComponent";
-import { format, parseISO } from "date-fns";
+import TarefasPendenteComponent from "./components/TarefasPendenteComponent";
+import TarefasPausadasComponent from "./components/TarefasPausadasComponent";
+import TarefasFinalizadosComponent from "./components/TarefasFinalizadosComponent";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavComponent from "./components/NavComponent";
 
 function App() {
   const [data, setData] = useState([]);
@@ -54,95 +58,80 @@ function App() {
           Os dados ficam salvos no Local Storage do navegador*
         </span>
 
-        <div className="box">
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Título</th>
-                <th>Descrição</th>
-                <th>Deadline</th>
-                <th>Status</th>
-                <th>Editar</th>
-                <th>Excluir</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map(
-                ({ id, titulo, descricao, deadline, status }, index) => (
-                  <tr key={index}>
-                    <td>
-                      {index}
-                      <span className="id">{id}</span>
-                    </td>
-                    <td>{titulo}</td>
-                    <td>{descricao}</td>
-                    <td>{format(parseISO(deadline), "dd/MM/yyyy")}</td>
-                    {status === "" ? (
-                      <td>
-                        <span className="pendente">{status}</span>
-                      </td>
-                    ) : (
-                      ""
-                    )}
-                    {status === "Pendente" ? (
-                      <td>
-                        <span className="pendente">{status}</span>
-                      </td>
-                    ) : (
-                      ""
-                    )}
-                    {status === "Pausado" ? (
-                      <td>
-                        <span className="pausado">{status}</span>
-                      </td>
-                    ) : (
-                      ""
-                    )}
-                    {status === "Finalizado" ? (
-                      <td>
-                        <span className="finalizado">{status}</span>
-                      </td>
-                    ) : (
-                      ""
-                    )}
-
-                    <td>
-                      <span
-                        className="editar"
-                        onClick={() => [
-                          onOpen(),
-                          setDataEdit({
-                            id,
-                            titulo,
-                            descricao,
-                            status,
-                            deadline,
-                            index,
-                          }),
-                          setTitulo(titulo),
-                          setDescricao(descricao),
-                          setStatus(status),
-                          setDeadline(deadline),
-                        ]}
-                      >
-                        <i className="fa-solid fa-pen-to-square"></i>
-                      </span>
-                    </td>
-                    <td>
-                      <span
-                        className="excluir"
-                        onClick={(e) => handleRemove(id)}
-                      >
-                        <i className="fa-solid fa-trash"></i>
-                      </span>
-                    </td>
-                  </tr>
-                )
-              )}
-            </tbody>
-          </table>
-        </div>
+        <BrowserRouter>
+          <NavComponent />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <TarefasPendenteComponent
+                  onClose={onClose}
+                  data={data}
+                  setData={setData}
+                  dataEdit={dataEdit}
+                  setDataEdit={setDataEdit}
+                  setTitulo={setTitulo}
+                  titulo={titulo}
+                  setDescricao={setDescricao}
+                  descricao={descricao}
+                  setId={setId}
+                  id={id}
+                  setStatus={setStatus}
+                  status={status}
+                  setDeadline={setDeadline}
+                  deadline={deadline}
+                  handleRemove={handleRemove}
+                />
+              }
+            />
+            <Route
+              path="pausadas"
+              element={
+                <TarefasPausadasComponent
+                  onClose={onClose}
+                  data={data}
+                  setData={setData}
+                  dataEdit={dataEdit}
+                  setDataEdit={setDataEdit}
+                  setTitulo={setTitulo}
+                  titulo={titulo}
+                  setDescricao={setDescricao}
+                  descricao={descricao}
+                  setId={setId}
+                  id={id}
+                  setStatus={setStatus}
+                  status={status}
+                  setDeadline={setDeadline}
+                  deadline={deadline}
+                  handleRemove={handleRemove}
+                />
+              }
+            />
+            <Route
+              path="finalizadas"
+              element={
+                <TarefasFinalizadosComponent
+                  onClose={onClose}
+                  data={data}
+                  setData={setData}
+                  dataEdit={dataEdit}
+                  setDataEdit={setDataEdit}
+                  setTitulo={setTitulo}
+                  titulo={titulo}
+                  setDescricao={setDescricao}
+                  descricao={descricao}
+                  setId={setId}
+                  id={id}
+                  setStatus={setStatus}
+                  status={status}
+                  setDeadline={setDeadline}
+                  deadline={deadline}
+                  handleRemove={handleRemove}
+                />
+              }
+            />
+          </Routes>
+        </BrowserRouter>
       </div>
       <ModalComponent
         onClose={onClose}
