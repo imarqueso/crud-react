@@ -24,14 +24,6 @@ function App() {
     setData(db_costumer);
   }, [setData]);
 
-  const handleRemove = (id) => {
-    const newArray = data.filter((item) => item.id !== id);
-
-    setData(newArray);
-
-    localStorage.setItem("cad_cliente", JSON.stringify(newArray));
-  };
-
   const onOpen = (e) => {
     document.getElementById("modal-container").classList.add("modal-visivel");
     setId(Math.floor(Math.random() * 9999999));
@@ -80,7 +72,6 @@ function App() {
                   status={status}
                   setDeadline={setDeadline}
                   deadline={deadline}
-                  handleRemove={handleRemove}
                 />
               }
             />
@@ -103,7 +94,6 @@ function App() {
                   status={status}
                   setDeadline={setDeadline}
                   deadline={deadline}
-                  handleRemove={handleRemove}
                 />
               }
             />
@@ -126,7 +116,6 @@ function App() {
                   status={status}
                   setDeadline={setDeadline}
                   deadline={deadline}
-                  handleRemove={handleRemove}
                 />
               }
             />

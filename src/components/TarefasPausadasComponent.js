@@ -7,7 +7,6 @@ const TarefasPausadasComponent = ({
   onClose,
   onOpen,
   setDataEdit,
-  handleRemove,
   setTitulo,
   titulo,
   setDescricao,
@@ -19,6 +18,14 @@ const TarefasPausadasComponent = ({
   setDeadline,
   deadline,
 }) => {
+  const handleRemove = (id) => {
+    const newArray = data.filter((item) => item.id !== id);
+
+    setData(newArray);
+
+    localStorage.setItem("cad_cliente", JSON.stringify(newArray));
+  };
+
   return (
     <div className="box">
       <table>
