@@ -250,7 +250,7 @@ nav ul li p {
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 425px) {
   nav ul li p {
     text-decoration: none;
     padding: 3px 9px;
