@@ -92,6 +92,7 @@ const ModalComponent = ({
                 value={titulo}
                 name="titulo"
                 onChange={(e) => setTitulo(e.target.value)}
+                placeholder="Digite o título"
                 required
               />
             </label>
@@ -103,6 +104,7 @@ const ModalComponent = ({
                 name="descricao"
                 onChange={(e) => setDescricao(e.target.value)}
                 required
+                placeholder="Digite a descrição"
               />
             </label>
             <label>
@@ -127,6 +129,7 @@ const ModalComponent = ({
                 name="deadline"
                 onChange={(e) => setDeadline(e.target.value)}
                 required
+                placeholder="Selecione o deadline"
               />
             </label>
             <div className="buttons">
