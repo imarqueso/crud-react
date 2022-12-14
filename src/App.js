@@ -4,7 +4,6 @@ import ModalComponent from "./components/ModalComponent";
 import TarefasPendenteComponent from "./components/TarefasPendenteComponent";
 import TarefasPausadasComponent from "./components/TarefasPausadasComponent";
 import TarefasFinalizadosComponent from "./components/TarefasFinalizadosComponent";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavComponent from "./components/NavComponent";
 
 function App() {
@@ -24,14 +23,6 @@ function App() {
     setData(db_costumer);
   }, [setData]);
 
-  const handleRemove = (id) => {
-    const newArray = data.filter((item) => item.id !== id);
-
-    setData(newArray);
-
-    localStorage.setItem("cad_cliente", JSON.stringify(newArray));
-  };
-
   const onOpen = (e) => {
     document.getElementById("modal-container").classList.add("modal-visivel");
     setId(Math.floor(Math.random() * 9999999));
@@ -47,6 +38,48 @@ function App() {
       .classList.remove("modal-visivel");
   };
 
+  const [qtdPendente, setQtdPendente] = useState("");
+  const [qtdPausado, setQtdPausado] = useState("");
+  const [qtdFinalizado, setQtdFinalizado] = useState("");
+
+  const handlePendente = () => {
+    document.getElementById("box-pendente").classList.add("box-visivel");
+    document.getElementById("box-pausado").classList.remove("box-visivel");
+    document.getElementById("box-finalizado").classList.remove("box-visivel");
+    document.getElementById("navPendente").classList.add("active");
+    document.getElementById("navPausado").classList.remove("active");
+    document.getElementById("navFinalizado").classList.remove("active");
+  };
+
+  const handlePausado = () => {
+    document.getElementById("box-pendente").classList.remove("box-visivel");
+    document.getElementById("box-pausado").classList.add("box-visivel");
+    document.getElementById("box-finalizado").classList.remove("box-visivel");
+    document.getElementById("navPendente").classList.remove("active");
+    document.getElementById("navPausado").classList.add("active");
+    document.getElementById("navFinalizado").classList.remove("active");
+  };
+
+  const handleFinalizado = () => {
+    document.getElementById("box-pendente").classList.remove("box-visivel");
+    document.getElementById("box-pausado").classList.remove("box-visivel");
+    document.getElementById("box-finalizado").classList.add("box-visivel");
+    document.getElementById("navPendente").classList.remove("active");
+    document.getElementById("navPausado").classList.remove("active");
+    document.getElementById("navFinalizado").classList.add("active");
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      const quantidadePendente = document.querySelectorAll(".qtdPendente");
+      setQtdPendente(quantidadePendente.length);
+      const quantidadePausado = document.querySelectorAll(".qtdPausado");
+      setQtdPausado(quantidadePausado.length);
+      const quantidadeFinalizado = document.querySelectorAll(".qtdFinalizado");
+      setQtdFinalizado(quantidadeFinalizado.length);
+    }, 500);
+  }, []);
+
   return (
     <section className="container">
       <div className="content">
@@ -58,80 +91,72 @@ function App() {
           Os dados ficam salvos no Local Storage do navegador*
         </span>
 
-        <BrowserRouter>
-          <NavComponent />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <TarefasPendenteComponent
-                  onClose={onClose}
-                  data={data}
-                  setData={setData}
-                  dataEdit={dataEdit}
-                  setDataEdit={setDataEdit}
-                  setTitulo={setTitulo}
-                  titulo={titulo}
-                  setDescricao={setDescricao}
-                  descricao={descricao}
-                  setId={setId}
-                  id={id}
-                  setStatus={setStatus}
-                  status={status}
-                  setDeadline={setDeadline}
-                  deadline={deadline}
-                  handleRemove={handleRemove}
-                />
-              }
-            />
-            <Route
-              path="pausadas"
-              element={
-                <TarefasPausadasComponent
-                  onClose={onClose}
-                  data={data}
-                  setData={setData}
-                  dataEdit={dataEdit}
-                  setDataEdit={setDataEdit}
-                  setTitulo={setTitulo}
-                  titulo={titulo}
-                  setDescricao={setDescricao}
-                  descricao={descricao}
-                  setId={setId}
-                  id={id}
-                  setStatus={setStatus}
-                  status={status}
-                  setDeadline={setDeadline}
-                  deadline={deadline}
-                  handleRemove={handleRemove}
-                />
-              }
-            />
-            <Route
-              path="finalizadas"
-              element={
-                <TarefasFinalizadosComponent
-                  onClose={onClose}
-                  data={data}
-                  setData={setData}
-                  dataEdit={dataEdit}
-                  setDataEdit={setDataEdit}
-                  setTitulo={setTitulo}
-                  titulo={titulo}
-                  setDescricao={setDescricao}
-                  descricao={descricao}
-                  setId={setId}
-                  id={id}
-                  setStatus={setStatus}
-                  status={status}
-                  setDeadline={setDeadline}
-                  deadline={deadline}
-                  handleRemove={handleRemove}
-                />
-              }
-            />
-          </Routes>
-        </BrowserRouter>
+        <NavComponent
+          qtdPendente={qtdPendente}
+          qtdPausado={qtdPausado}
+          qtdFinalizado={qtdFinalizado}
+          handlePendente={handlePendente}
+          handlePausado={handlePausado}
+          handleFinalizado={handleFinalizado}
+        />
+
+        <TarefasPendenteComponent
+          onClose={onClose}
+          data={data}
+          setData={setData}
+          dataEdit={dataEdit}
+          setDataEdit={setDataEdit}
+          setTitulo={setTitulo}
+          titulo={titulo}
+          setDescricao={setDescricao}
+          descricao={descricao}
+          setId={setId}
+          id={id}
+          setStatus={setStatus}
+          status={status}
+          setDeadline={setDeadline}
+          deadline={deadline}
+          onOpen={onOpen}
+          setQtdPendente={setQtdPendente}
+        />
+        <TarefasPausadasComponent
+          onClose={onClose}
+          data={data}
+          setData={setData}
+          dataEdit={dataEdit}
+          setDataEdit={setDataEdit}
+          setTitulo={setTitulo}
+          titulo={titulo}
+          setDescricao={setDescricao}
+          descricao={descricao}
+          setId={setId}
+          id={id}
+          setStatus={setStatus}
+          status={status}
+          setDeadline={setDeadline}
+          deadline={deadline}
+          onOpen={onOpen}
+          setQtdPausado={setQtdPausado}
+        />
+        <TarefasFinalizadosComponent
+          onClose={onClose}
+          data={data}
+          setData={setData}
+          dataEdit={dataEdit}
+          setDataEdit={setDataEdit}
+          setTitulo={setTitulo}
+          titulo={titulo}
+          setDescricao={setDescricao}
+          descricao={descricao}
+          setId={setId}
+          id={id}
+          setStatus={setStatus}
+          status={status}
+          setDeadline={setDeadline}
+          deadline={deadline}
+          onOpen={onOpen}
+          setQtdFinalizado={setQtdFinalizado}
+        />
       </div>
       <ModalComponent
         onClose={onClose}
@@ -149,6 +174,12 @@ function App() {
         status={status}
         setDeadline={setDeadline}
         deadline={deadline}
+        setQtdPendente={setQtdPendente}
+        setQtdPausado={setQtdPausado}
+        setQtdFinalizado={setQtdFinalizado}
+        qtdPendente={qtdPendente}
+        qtdPausado={qtdPausado}
+        qtdFinalizado={qtdFinalizado}
       />
     </section>
   );

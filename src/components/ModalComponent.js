@@ -15,6 +15,12 @@ const ModalComponent = ({
   status,
   setDeadline,
   deadline,
+  setQtdPendente,
+  setQtdPausado,
+  setQtdFinalizado,
+  qtdPendente,
+  qtdPausado,
+  qtdFinalizado,
 }) => {
   const handleSave = (e) => {
     e.preventDefault();
@@ -37,12 +43,25 @@ const ModalComponent = ({
     localStorage.setItem("cad_cliente", JSON.stringify(newDataArray));
 
     setData(newDataArray);
+
+    setTimeout(() => {
+      const quantidadePendente = document.querySelectorAll(".qtdPendente");
+      setQtdPendente(quantidadePendente.length);
+      const quantidadePausado = document.querySelectorAll(".qtdPausado");
+      setQtdPausado(quantidadePausado.length);
+      const quantidadeFinalizado = document.querySelectorAll(".qtdFinalizado");
+      setQtdFinalizado(quantidadeFinalizado.length);
+    }, 500);
+
     setTitulo("");
     setDescricao("");
     setStatus("");
     setDeadline("");
     setId("");
     onClose();
+    setQtdPendente();
+    setQtdPausado();
+    setQtdFinalizado();
   };
 
   // const emailAlreadyExists = () => {

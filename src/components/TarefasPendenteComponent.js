@@ -7,7 +7,6 @@ const TarefasPendenteComponent = ({
   onClose,
   onOpen,
   setDataEdit,
-  handleRemove,
   setTitulo,
   titulo,
   setDescricao,
@@ -18,9 +17,24 @@ const TarefasPendenteComponent = ({
   status,
   setDeadline,
   deadline,
+  setQtdPendente,
+  quantidadePendente,
 }) => {
+  const handleRemove = (id) => {
+    const newArray = data.filter((item) => item.id !== id);
+
+    setData(newArray);
+
+    localStorage.setItem("cad_cliente", JSON.stringify(newArray));
+
+    setTimeout(() => {
+      const quantidadePendente = document.querySelectorAll(".qtdPendente");
+      setQtdPendente(quantidadePendente.length);
+    }, 500);
+  };
+
   return (
-    <div className="box">
+    <div className="box box-visivel" id="box-pendente">
       <table>
         <thead>
           <tr>
@@ -36,9 +50,9 @@ const TarefasPendenteComponent = ({
         <tbody>
           {data.map(({ id, titulo, descricao, deadline, status }, index) => {
             return status === "Pendente" ? (
-              <tr key={index}>
+              <tr key={index} className="qtdPendente">
                 <td>
-                  {index}
+                  {index + 1}
                   <span className="id">{id}</span>
                 </td>
                 <td>{titulo}</td>

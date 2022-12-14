@@ -1,17 +1,28 @@
-import { NavLink } from "react-router-dom";
-
-const NavComponent = () => {
+const NavComponent = ({
+  qtdPendente,
+  qtdPausado,
+  qtdFinalizado,
+  handlePendente,
+  handlePausado,
+  handleFinalizado,
+}) => {
   return (
     <nav>
       <ul>
         <li>
-          <NavLink to="/">Pendentes</NavLink>
+          <p onClick={handlePendente} className="active" id="navPendente">
+            Pendentes&nbsp;({qtdPendente})
+          </p>
         </li>
         <li>
-          <NavLink to="pausadas">Pausadas</NavLink>
+          <p onClick={handlePausado} id="navPausado">
+            Pausadas&nbsp;({qtdPausado})
+          </p>
         </li>
         <li>
-          <NavLink to="finalizadas">Finalizadas</NavLink>
+          <p onClick={handleFinalizado} id="navFinalizado">
+            Finalizadas&nbsp;({qtdFinalizado})
+          </p>
         </li>
       </ul>
     </nav>
