@@ -17,6 +17,8 @@ const TarefasPausadasComponent = ({
   status,
   setDeadline,
   deadline,
+  setQtdPausado,
+  quantidadePausado,
 }) => {
   const handleRemove = (id) => {
     const newArray = data.filter((item) => item.id !== id);
@@ -24,10 +26,15 @@ const TarefasPausadasComponent = ({
     setData(newArray);
 
     localStorage.setItem("cad_cliente", JSON.stringify(newArray));
+
+    setTimeout(() => {
+      const quantidadePausado = document.querySelectorAll(".qtdPausado");
+      setQtdPausado(quantidadePausado.length);
+    }, 500);
   };
 
   return (
-    <div className="box">
+    <div className="box" id="box-pausado">
       <table>
         <thead>
           <tr>
@@ -43,9 +50,9 @@ const TarefasPausadasComponent = ({
         <tbody>
           {data.map(({ id, titulo, descricao, deadline, status }, index) => {
             return status === "Pausado" ? (
-              <tr key={index}>
+              <tr key={index} className="qtdPausado">
                 <td>
-                  {index}
+                  {index + 1}
                   <span className="id">{id}</span>
                 </td>
                 <td>{titulo}</td>

@@ -137,7 +137,7 @@ td .id {
 }
 
 .finalizado {
-  background-color: darkgreen;
+  background-color: #228d15;
 }
 
 .editar, .excluir {
@@ -198,7 +198,7 @@ nav ul li {
   align-items: center;
 }
 
-nav ul li a {
+nav ul li p {
   text-decoration: none;
   padding: 8px 15px;
   height: 100%;
@@ -212,12 +212,21 @@ nav ul li a {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .active {
   background-color: #cfdde9;
   transition: 0.4s ease all;  
 }
+
+#box-pendente, #box-pausado, #box-finalizado {
+  display: none;
+}
+
+.box-visivel {
+  display: block !important;
+} 
 
 @media (max-width: 1200px) {
   .content {

@@ -17,6 +17,7 @@ const TarefasFinalizadosComponent = ({
   status,
   setDeadline,
   deadline,
+  setQtdFinalizado,
 }) => {
   const handleRemove = (id) => {
     const newArray = data.filter((item) => item.id !== id);
@@ -24,10 +25,15 @@ const TarefasFinalizadosComponent = ({
     setData(newArray);
 
     localStorage.setItem("cad_cliente", JSON.stringify(newArray));
+
+    setTimeout(() => {
+      const quantidadeFinalizado = document.querySelectorAll(".qtdFinalizado");
+      setQtdFinalizado(quantidadeFinalizado.length);
+    }, 500);
   };
 
   return (
-    <div className="box">
+    <div className="box" id="box-finalizado">
       <table>
         <thead>
           <tr>
@@ -43,16 +49,16 @@ const TarefasFinalizadosComponent = ({
         <tbody>
           {data.map(({ id, titulo, descricao, deadline, status }, index) => {
             return status === "Finalizado" ? (
-              <tr key={index}>
+              <tr key={index} className="qtdFinalizado">
                 <td>
-                  {index}
+                  {index + 1}
                   <span className="id">{id}</span>
                 </td>
                 <td>{titulo}</td>
                 <td>{descricao}</td>
                 <td>{format(parseISO(deadline), "dd/MM/yyyy")}</td>
                 <td>
-                  <span className="pendente">{status}</span>
+                  <span className="finalizado">{status}</span>
                 </td>
                 <td>
                   <span
