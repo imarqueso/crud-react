@@ -56,7 +56,7 @@ const TarefasPausadasComponent = ({
                   <span className="id">{id}</span>
                 </td>
                 <td>{titulo}</td>
-                <td>{descricao}</td>
+                <td className="descricao">{descricao}</td>
                 <td>{format(parseISO(deadline), "dd/MM/yyyy")}</td>
                 <td>
                   <span className="pausado">{status}</span>

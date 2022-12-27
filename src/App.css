@@ -252,6 +252,12 @@ nav ul li p {
   }
 }
 
+@media (max-width: 950px) {
+  .descricao {
+    min-width: 400px;
+  }
+}
+
 @media (max-width: 425px) {
   nav ul li p {
     text-decoration: none;
