@@ -253,6 +253,10 @@ nav ul li p {
 }
 
 @media (max-width: 950px) {
+  .titulo {
+    min-width: 200px;
+  }
+
   .descricao {
     min-width: 400px;
   }

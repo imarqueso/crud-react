@@ -54,7 +54,7 @@ const TarefasFinalizadosComponent = ({
                   {index + 1}
                   <span className="id">{id}</span>
                 </td>
-                <td>{titulo}</td>
+                <td className="titulo">{titulo}</td>
                 <td className="descricao">{descricao}</td>
                 <td>{format(parseISO(deadline), "dd/MM/yyyy")}</td>
                 <td>
