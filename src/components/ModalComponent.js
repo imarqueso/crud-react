@@ -98,14 +98,13 @@ const ModalComponent = ({
             </label>
             <label>
               <span>Descrição:</span>
-              <input
-                type="text"
+              <textarea
                 value={descricao}
                 name="descricao"
                 onChange={(e) => setDescricao(e.target.value)}
                 required
                 placeholder="Digite a descrição"
-              />
+              ></textarea>
             </label>
             <label>
               <span>Status:</span>
