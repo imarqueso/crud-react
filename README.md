@@ -12,6 +12,6 @@
 
 <h4>Usability</h4>
 
-<p>To use the app, start by adding a task using the blue "add task" button at the top of the page. You can edit it by changing its data and status respectively, as well as delete tasks.</p>
+<p>To use the app, start by adding a task using the blue "adicionar tarefa" button at the top of the page. You can edit it by changing its data and status respectively, as well as delete tasks.</p>
 
 <h5><a href="https://tarefaagil.vercel.app/" target="_blank">Click here to see the project's deployment.</a></h5>
