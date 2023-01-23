@@ -1,6 +1,6 @@
 <h2>To-do list</h2>
 
-<pWebApp Task List powered by ReactJS. It is possible to save the tasks and separate them by 3 tabs, pending, paused and finished. The data is saved in the browser's LocalStorage.</p>
+<p>WebApp Task List powered by ReactJS. It is possible to save the tasks and separate them by 3 tabs, pending, paused and finished. The data is saved in the browser's LocalStorage.</p>
 
 <h4>Technologies used</h4>
 <ul>
